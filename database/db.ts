@@ -1,11 +1,12 @@
 import { createConnection } from "typeorm";
-
+import {User} from "../entints/entity"
 export const db = createConnection({
   type: "mysql",
   host: "localhost",
   database: "chatApp",
-  username: "main",
-  password: "",
+  username: "gathem",
+  password: "123",
   port: 3306,
-  entities: [],
+  entities: [User],
+  synchronize:true
 });
