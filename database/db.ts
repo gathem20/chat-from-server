@@ -1,5 +1,6 @@
 import { createConnection } from "typeorm";
-import {User} from "../entints/entity"
+import { User } from "../entities/user.entity";
+
 export const db = createConnection({
   type: "mysql",
   host: "localhost",
@@ -8,5 +9,5 @@ export const db = createConnection({
   password: "123",
   port: 3306,
   entities: [User],
-  synchronize:true
+  synchronize: false,
 });
