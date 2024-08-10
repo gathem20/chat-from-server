@@ -1,7 +1,7 @@
 import { io } from "../index";
-import { disconnect } from "process";
 
-export const Active_User = Array();
+
+export const Active_User = new Map();
 export function Socket_server() {
   io.on("connection", (client: any) => {
     console.log("connect to socket", client.id);
@@ -10,7 +10,7 @@ export function Socket_server() {
         user_id: data.id,
         socket_id: data.id,
       };
-      Active_User.push(obj);
+      Active_User.set(data.id, obj);
     });
     client.on("disconnect", () => {
       console.log("disconnect to socket", client.id);
